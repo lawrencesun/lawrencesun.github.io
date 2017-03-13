@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Lawrence Sun&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://voice.lawrencesun.info/page/17/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lawrence Sun</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>Lawrence Sun</h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading">Hello World</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
+
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-first-day/">
+        <h2 class="post-title">
+            传送门：公元0年
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            2009-01-01
+
+元旦很没意思，因为这个蛋吃不了，却徒增很多人凭吊过去的伤感，同时煽起很多人意淫未来的情怀。每年这个时候基本都会做这两件事，从这种意义上说，公元0年和公元09年元旦的差别仅在于后者多了一个9。
+
+ 我不太善于总结。这个方面领导的小m比较擅长。
+
+ 我喜欢畅想未来。因为未来，你爱怎么想就怎么想，而且不一定要实现。就如我幻想着来一个跨年度的学习，结果却成了跨年度的娱乐。
+
+......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-fake-james/">
+        <h2 class="post-title">
+            传送门：山寨版詹姆斯
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            2008-12-08
+
+今天下午再次贡献得分10+篮板5+盖帽5+的数据。由于连续两轮比赛的盖帽数达到5，一举登上联盟盖帽榜榜首，哈哈。 其实，我在2K里更强。现实联盟中只能算是加强版诺瓦克或者是削弱版科沃尔，偶尔山寨版詹姆斯。
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-fact-is/">
+        <h2 class="post-title">
+            传送门：原来
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            2009.7.2原来
+
+1.三年搬两次寝室——原来后勤是可以这么规划的。
+
+ 2.人民大会堂150万的洗手间——原来厕所是可以这么豪华的。
+
+ 3.上海楼盘倒塌——原来玻璃是可以这么强悍的。
+
+ 4.韩寒的360°旋转手势——原来中指可以竖得这么有型的。
+
+ 5.姚明的左脚——原来黑玉断续膏是如此重要的。
+
+2009.7.11想写啥来着
+
+1.在即将搬寝的时候，还买了两本书，不太理智。后果显......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/a-few-notes/">
+        <h2 class="post-title">
+            传送门：写几个事儿
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            2009-03-07
+
+1.最近老想着统一，上学期康师傅吃多了，想换换口。
+
+ 2.前些天学校出了点事，但是没看到新闻报道，连流言都封锁的很好。可以肯定的是，不是躲猫猫。
+
+ 3.老师说要去搜一下导师的研究方向，第一反应就是人肉搜索该叫兽。
+
+ 4.买了不是西藏产的藏药，没想到效果还不错。
+
+ 5.进来打球的人越来越多，多得像打架。
+
+ 6.学校的窄带越来越慢，慢得像猫。
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-deadline/">
+        <h2 class="post-title">
+            传送门：2009.6.9 佛祖，借你大腿一用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.成都公交车事件教育我们，乘坐公交车除了带零钱之外，还需自备小锤一把。
+
+ 2.新闻联播即将改版，所以喜欢看领导开会、粮食丰收的同志要抓紧时间观看了。
+
+ 3.前日途径海事，100年店庆和60年店庆的差距，还是很大的。
+
+  4.由于小学期这个先进项目的启动，佛祖临时成了最受欢迎的神，佛祖的脚临时成了最受欢迎的——脚。
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-dairy/">
+        <h2 class="post-title">
+            传送门：杂的日志
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            2008-11-26
+
+所谓杂的日志就是写些乱七八糟的东西，俗称流水帐。
+
+今天打球比较突然，装备不太好，但是创下了赛季盖帽新高，据不完全统计，大概5个吧。不过被踩了好几脚，还疑似轻微崴脚，我要不要主动休战呢…为了党和人民，我毅然绝然地选择明天睡到自然醒。
+
+赶完报告，下午去做心电放大的实验。都说学着没用，却发现想用时没学。据称学院花了3000多，这让我很感动，毕竟这年头直接用在学生头上的钱......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-cute-dog/">
+        <h2 class="post-title">
+            传送门：贱狗尚有立功时，咸鱼安能不翻身？
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            2010-03-25
+
+路边社消息 凌晨四点半，黑夜、黑影。一双罪恶的黑手撬开保笼。当此危难之际，勒布朗小楞大喝一声，飞身跃出，欲与邪恶势力展开殊死搏斗。恶人见状大骇，踉踉跄跄，落荒而逃。自此小楞声威大震，名扬天下。
+
+      本报特约记者第一时间采访了小楞他哥。他表示，尽管小楞在平时的训练中态度散漫，还经常外出泡妞，但此次在关键时刻有全明星的表现，球队愿意在接下来的赛季加薪续约。同时表......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-crazy-shopping/">
+        <h2 class="post-title">
+            传送门：一年一度的血拼
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            一年一度的新玛特店庆，照例去凑了个热闹。原以为周五人能少点，结果人还是很多，要不是我身材不错早就卡那儿了。
+由于资金不足，篮球鞋计划搁浅。今年就收获两件战利品。一件nike90的短袖90元，一双reebok的跑鞋171元。同时和同学公享了一张100的中秋购物券。接下来的重大计划就是睡个好觉。
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-comeback/">
+        <h2 class="post-title">
+            传送门：归来记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            2008-07-19
+
+晚点了近一小时，折腾了半天，终于回家了。回到了熟悉又陌生的杭州。
+
+     运气还不错，虽然雨大了点，但是气温比较适宜，给了我缓冲的机会。据说今年蚊子特少，大多在年初的大雪中牺牲。但是少不等于没有，拿我来说，还没进家门，就在楼下车库里遭伏击了。
+
+     家里可以躺在床上优哉游哉地上网，不必像在学校那样考虑网线和熄灯问题。明天去购置一些食物，过几天腐败的日子先。
+......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2011/05/29/the-cat-image/">
+        <h2 class="post-title">
+            传送门：前天晚上在寝室拍的猫片
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            时间：2010年1月8日
+
+地点：寝室
+
+主题：非高清猫片
+
+事件：是夜，一个黑影轻盈地来到我们寝室，一开始以为是“她”，没想到是“他”。
+
+黑猫城管视察之后见没有什么可以搜刮的，便离开了寝室，拉响警笛，继续在楼道巡查。
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lawrence Sun on
+        2011-05-29
+    </p>
+
+</div>
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+        <li class="previous">
+            <a href="/page/16/">&larr; Newer Posts</a>
+        </li>
+    
+    
+        <li class="next">
+            <a href="/page/18/">Older Posts &rarr;</a>
+        </li>
+    
+</ul>
+
+
+
+                <!-- 如果开启评论功能 -->
+                
+
+            </div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                            
+                            <a href="/tags/#传送门" title="传送门" rel="78">传送门</a>
+                            
+                        
+                            
+                            <a href="/tags/#曼游记" title="曼游记" rel="41">曼游记</a>
+                            
+                        
+                            
+                            <a href="/tags/#驴行" title="驴行" rel="33">驴行</a>
+                            
+                        
+                            
+                            <a href="/tags/#Travel" title="Travel" rel="50">Travel</a>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#Rails" title="Rails" rel="22">Rails</a>
+                            
+                        
+                            
+                            <a href="/tags/#Ruby" title="Ruby" rel="14">Ruby</a>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
+                    <div class="short-about">
+
+                        
+                            <img src="/img/profilepic.jpg" />
+                        
+
+                        
+                            <p>Hello World</p>
+                        
+
+                        <!-- SNS Link -->
+                        <ul class="list-inline">
+                            
+                            
+                                <li>
+                                    <a target="_blank" href="https://twitter.com/sunyuliang">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            
+                            
+                                <li>
+                                    <a target="_blank" href="https://www.zhihu.com/people/lawrencesun">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
+                                        </span>
+                                    </a>
+                                </li>
+                            
+
+                            
+                                <li>
+                                    <a target="_blank" href="http://weibo.com/ylsun">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            
+
+                            
+
+                            
+                                <li>
+                                    <a target="_blank"  href="https://github.com/lawrencesun">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            
+                            
+                            
+                            
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- Friends Blog -->
+                
+            </div>
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/sunyuliang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lawrencesun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/ylsun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/lawrencesun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Lawrence Sun 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Powered by <a href="https://hexo.io">Hexo</a> | <a href="https://m.do.co/c/2adf40a76dab">Digital Ocean</a> | <a href="https://portal.qiniu.com/signup?code=3lnzd178edmqa">Qiniu</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://voice.lawrencesun.info/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://voice.lawrencesun.info/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

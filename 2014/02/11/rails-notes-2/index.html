@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Rails Notes 2 - Lawrence Sun&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://voice.lawrencesun.info/2014/02/11/rails-notes-2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lawrence Sun</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://voice.lawrencesun.info/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Rails" title="Rails">Rails</a>
+                        
+                          <a class="tag" href="/tags/#Ruby" title="Ruby">Ruby</a>
+                        
+                    </div>
+                    <h1>Rails Notes 2</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Lawrence Sun on
+                        2014-02-11
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>Last week, I built a blog prototype based on the twitter-like app in Rails Tutorial. Here is the 2nd note.</p>
+<a id="more"></a>
+<p><strong>Email validation</strong></p>
+<p>Create a database index on the email column, and require that the index be unique.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddIndexToUsersEmail</span> &lt; ActiveRecord::Migration</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></div><div class="line">    add_index <span class="symbol">:users</span>, <span class="symbol">:email</span>, <span class="symbol">unique:</span> <span class="literal">true</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>Add validation ‘app/models/user.rb’<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">before_save &#123; <span class="keyword">self</span>.email = email.downcase &#125;</div><div class="line">validates <span class="symbol">:username</span>, <span class="symbol">presence:</span> <span class="literal">true</span>, <span class="symbol">uniqueness:</span> <span class="literal">true</span>, <span class="symbol">length:</span> 	&#123; <span class="symbol">maximum:</span> <span class="number">15</span> &#125;</div><div class="line">VALID_EMAIL_REGEX = <span class="regexp">/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i</span></div><div class="line">validates <span class="symbol">:email</span>, <span class="symbol">presence:</span> <span class="literal">true</span>, <span class="symbol">format:</span> &#123; <span class="symbol">with:</span> VALID_EMAIL_REGEX &#125;,</div><div class="line">										<span class="symbol">uniqueness:</span> &#123; <span class="symbol">case_sensitive:</span> <span class="literal">false</span>&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>User authentication</strong></p>
+<p>Apply a gem called <code>bcrypt-ruby</code>. Presence validations for the password and its confirmation are automatically added by <code>has_secure_password</code>. Call method <code>authenticate</code> to confirm and   get user.</p>
+<p>Generate migration and <code>add_column :users, :password_digest, :string</code> to the table.<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">rails</span> g migration add_password_digest_to_users</div></pre></td></tr></table></figure></p>
+<p><strong>Sign in user</strong></p>
+<p>create a non-model backed controller <code>sessions</code>. A session is a semi-permanent connection between two computers, such as a client computer running a web browser and a server running Rails. Sessions resource will use a cookie, which is a small piece of text placed on the user’s browser. </p>
+<p>non-model backed form for sign-in, using form_tag<br>alternatively, using form_for(:session, url: sessions_path)<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;%= form_tag <span class="string">'/signin'</span>, <span class="symbol">method:</span> <span class="string">'post'</span> <span class="keyword">do</span> %&gt;</div><div class="line">	&lt;%= label_tag <span class="symbol">:username</span>, <span class="string">"用户名"</span> %&gt;</div><div class="line">	&lt;%= text_field_tag <span class="symbol">:username</span> %&gt;</div><div class="line">	&lt;br/&gt;</div><div class="line">	&lt;%= label_tag <span class="symbol">:password</span>, <span class="string">"密码"</span> %&gt;</div><div class="line"> 	&lt;%= password_field_tag <span class="symbol">:password</span> %&gt;</div><div class="line">	&lt;br/&gt;</div><div class="line">	&lt;%= submit_tag <span class="string">"登录"</span>, <span class="class"><span class="keyword">class</span>: "<span class="title">btn</span> <span class="title">btn</span>-<span class="title">primary</span>" %&gt;</span></div><div class="line">&lt;% <span class="keyword">end</span> %&gt;</div></pre></td></tr></table></figure></p>
+<p>signin page above for <em>new</em> sessions, signing in will <em>create</em> a session, and signing out will <em>destroy</em> it<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">create</span></span></div><div class="line">	user = User.find_by_username(params[<span class="symbol">:username</span>])</div><div class="line">  <span class="keyword">if</span> user &amp;&amp; user.authenticate(params[<span class="symbol">:session</span>][<span class="symbol">:password</span>])</div><div class="line">    ...</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">destroy</span></span></div><div class="line">	session[<span class="symbol">:user_id</span>] = <span class="literal">nil</span></div><div class="line">		...</div></pre></td></tr></table></figure></p>
+<p>routes:<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">get</span>  	<span class="string">'/signup'</span>, <span class="built_in">to</span>: <span class="string">'users#new'</span></div><div class="line"><span class="built_in">get</span>		<span class="string">'/signin'</span>, <span class="built_in">to</span>: <span class="string">'sessions#new'</span></div><div class="line"><span class="built_in">post</span> 	<span class="string">'/signin'</span>, <span class="built_in">to</span>: <span class="string">'sessions#create'</span></div><div class="line"><span class="built_in">get</span> <span class="string">'/signout'</span>, <span class="built_in">to</span>: <span class="string">'sessions#destroy'</span></div></pre></td></tr></table></figure></p>
+<p><strong>Current_user</strong></p>
+<p>define current_user in ApplicationController and add <code>helper_method :current_user, :sign_in?, …</code> to make it available to view templates. Alternatively, we can add methods in ApplicationHelper, and add<code>include SessionsHelper</code> in ApplicationController to make it available in controller.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">current_user</span></span></div><div class="line">  @current_user <span class="params">||</span>= User.find(session[<span class="symbol">:user_id</span>]) <span class="keyword">if</span> session[<span class="symbol">:user_id</span>]</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">signed_in?</span></span></div><div class="line">	!!current_user</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">require_user</span></span></div><div class="line">	unless signed_in?</div><div class="line">  	flash[<span class="symbol">:error</span>] = <span class="string">"请登录."</span></div><div class="line">  	redirect_to <span class="string">'/signin'</span></div><div class="line"> 	<span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>“||=” assigning to a variable if it’s nil but otherwise leaving it alone. <em>memorization</em>: calls the find_by method the first time current_user is called, but on subsequent invocations returns @current_user without hitting the database.</p>
+<p>sign in user upon sign up:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> @user.save</div><div class="line">	session[<span class="symbol">:user_id</span>] = @user.id</div><div class="line">	...</div></pre></td></tr></table></figure></p>
+<p><code>add_user_id_to_post</code> and assign user_id to new post<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">create</span></span></div><div class="line">	@post = Post.new(post_params)</div><div class="line">	@post.user = current_user</div><div class="line">	...</div></pre></td></tr></table></figure></p>
+<p><strong>Update user</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span></span></div><div class="line">	<span class="keyword">if</span> @user.update_attributes(user_params)</div><div class="line">	...</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">&lt;%= f.submit(@user.new_record? ? <span class="string">"注册"</span> : <span class="string">"更新"</span>, <span class="class"><span class="keyword">class</span>: "<span class="title">btn</span> <span class="title">btn</span>-<span class="title">primary</span>") %&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>Add gravatar</strong></p>
+<p>add in ‘app/helper/user_helper.rb’ and call &lt;%= gravatar_for @user %&gt;<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">module</span> <span class="title">UsersHelper</span></span></div><div class="line">  <span class="comment"># Returns the Gravatar (http://gravatar.com/) for the given user.</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">gravatar_for</span><span class="params">(user)</span></span></div><div class="line">    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)</div><div class="line">    gravatar_url = <span class="string">"https://secure.gravatar.com/avatar/<span class="subst">#&#123;gravatar_id&#125;</span>"</span></div><div class="line">    image_tag(gravatar_url, <span class="symbol">alt:</span> user.username, <span class="class"><span class="keyword">class</span>: "<span class="title">gravatar</span>")</span></div><div class="line">	<span class="keyword">end</span> </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>add some styles<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* gravatar */</span></div><div class="line"><span class="selector-class">.gravatar-sm</span> &#123;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">48px</span>;</div><div class="line">	<span class="attribute">width</span>:<span class="number">48px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.gravatar-normal</span> &#123;</div><div class="line">	<span class="attribute">height</span>:<span class="number">64px</span>;</div><div class="line">	<span class="attribute">width</span>:<span class="number">64px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Require the same user</strong></p>
+<p>‘app/controllers/application_controller.rb’<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">correct_user?</span><span class="params">(user)</span></span></div><div class="line">  user == current_user</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>‘app/controllers/users_controller.rb’<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">before_action <span class="symbol">:correct_user</span>, <span class="symbol">only:</span>[<span class="symbol">:edit</span>, <span class="symbol">:update</span>]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">correct_user</span></span></div><div class="line">  @user = User.find(params[<span class="symbol">:id</span>])</div><div class="line">  redirect_to root_path unless correct_user?(@user)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p><strong>Change date format</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">module</span> <span class="title">ApplicationHelper</span></span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">display_date</span><span class="params">(dt)</span></span></div><div class="line">		dt.strftime(<span class="string">"%d/%m/%Y"</span>) </div><div class="line">	<span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p><strong>Others</strong></p>
+<p>apart from @import bootstrap in app/assets/stylesheets/custom.css.scss<br>//= require bootstrap in app/assets/javascripts/application.js</p>
+<p>flash.now #disappear as soon as there is an additional request.</p>
+<p>issue:<br>when I submit blank comment, it leads to error. this is because I run the _comments.html.erb before render the error message. </p>
+<p>solution:<br>add &lt;% unless comment.body.blank? %&gt; …. &lt;% end %&gt; in _comments partial.</p>
+<p>Strong parameters:<br>The reason is that initializing the entire params hash is extremely dangerous—it arranges to pass to User.new all data submitted by a user. In particular, suppose that, in addition to the current attributes, the User model included an admin attribute used to identify administrative users of the site. The way to set such an attribute to true is to pass the value admin=’1’ as part of params[:user], a task that is easy to accomplish using a command-line HTTP client such as curl. The result would be that, by passing in the entire params hash to User.new, we would allow any user of the site to gain administrative access by including admin=’1’ in the web request.</p>
+<p>&lt;%= render ‘shared/posts’ , objects: @posts%&gt; to reduce duplication</p>
+
+
+                <hr>
+
+               
+                <div class="bshare-custom"><a title="分享到微信" class="bshare-weixin"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到豆瓣" class="bshare-douban"></a><a title="分享到Facebook" class="bshare-facebook"></a><a title="分享到Twitter" class="bshare-twitter"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script><a class="bshareDiv" onclick="javascript:return false;"></a><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2014/02/11/rails-notes-adding-categories/" data-toggle="tooltip" data-placement="top" title="Rails Notes: Adding Categories">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2014/01/27/rails-note-1/" data-toggle="tooltip" data-placement="top" title="Rails Notes 1">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Rails" title="Rails">Rails</a>
+                        
+                          <a class="tag" href="/tags/#Ruby" title="Ruby">Ruby</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "voicelawrencesun";
+    var disqus_identifier = "http://voice.lawrencesun.info/2014/02/11/rails-notes-2/";
+    var disqus_url = "http://voice.lawrencesun.info/2014/02/11/rails-notes-2/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/sunyuliang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lawrencesun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/ylsun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/lawrencesun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Lawrence Sun 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Powered by <a href="https://hexo.io">Hexo</a> | <a href="https://m.do.co/c/2adf40a76dab">Digital Ocean</a> | <a href="https://portal.qiniu.com/signup?code=3lnzd178edmqa">Qiniu</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://voice.lawrencesun.info/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://voice.lawrencesun.info/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

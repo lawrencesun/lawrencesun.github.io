@@ -2,7 +2,7 @@
 title: Octopress to Hexo
 date: 2017-03-12 21:24:58
 categories: 
-tags: Hexo
+tags: [Hexo, Octopress]
 comments: true
 keywords: 
 description:
@@ -23,7 +23,9 @@ $ hexo d 	//部署网站
 $ hexo g -d //生成并部署
 ```
 
-继续利用github pages来展示，把原来网站进行备份并新建一个项目username.github.io。
+文章迁移。只要把 Octopress `source/_posts` 文件夹内的所有文件转移到 Hexo 的 `source/_posts` 文件夹，并修改 _config.yml 中的 new_post_name 参数: `new_post_name: :year-:month-:day-:title.md`。
+
+网站继续利用github pages，把原来网站进行备份并重建名为`username.github.io`的项目。
 
 安装以下插件： `$ npm install hexo-deployer-git --save`
 
@@ -37,3 +39,10 @@ deploy:
 ```
 
 部署过程出现`Permission denied (publickey)`的错误，输入`$ ssh -T git@github.com`之后也是错误，然后发现之前没把老黑的SSH Key加到Github上。虽然之前有一对Key，不过为了方便，从新生成了Key并成功连接了Github。具体见[Connecting to github with ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)。
+
+对于版本管理，许久没用，有一些生疏了，就把[远程操作](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)这篇翻出来看。因为是用了别人的主题，所以有必要通过`$ git branch`和`$ git remote -v`来查看一下当前本地和远程分支并进行管理和删减。
+
+hexo部署时会将产生的静态网页推送到username.github.io项目中默认的master分支。为了给网站备份，需要在远程添加另一个分支。首先添加远程主机，并命名为origin：`$ git remote add origin <git repo address>`。
+`$ git add .`和`$ git commit -m "msg"`之后，运行`$ git push origin master:source`，即将本地master分支推送到远程origin的source分支。
+
+绑定域名。因为之前已经绑定过了，只需在github的username.github.io项目的Settings -> Custom domain里添加网址即可。

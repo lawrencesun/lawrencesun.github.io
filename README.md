@@ -1,6 +1,6 @@
-My Blog
+Personal Blog
 
-Using
+Powered by
 
 `Hexo`
 `Github`
